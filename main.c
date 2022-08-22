@@ -14,7 +14,17 @@ int main(void)
 	srand(time(NULL));
 	printf("Guess the Number\n");
 	validateRange();
-	printf("Random = %d", randomNumber());
+
+	int givenNumber;
+	int randomisedNumber = randomNumber();
+
+	do
+	{
+		givenNumber = randomNumber();
+
+		printf("Given number = %d, Randomised number = %d\n", givenNumber, randomisedNumber);
+	}
+	while (givenNumber != randomisedNumber);
 
 	return 0;
 }
