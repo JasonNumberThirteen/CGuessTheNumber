@@ -57,7 +57,7 @@ void validateRange()
 		printf(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-1);
 	}
-	else if(MIN_NUMBER == MAX_NUMBER)
+	else if(!numbersAreNotEqual(MIN_NUMBER, MAX_NUMBER))
 	{
 		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-2);
