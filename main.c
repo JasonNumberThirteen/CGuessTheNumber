@@ -6,11 +6,13 @@
 #include <stdlib.h>
 
 void validateRange(void);
+int randomNumber(void);
 
 int main(void)
 {
 	printf("Guess the Number\n");
 	validateRange();
+	printf("Random = %d", randomNumber());
 
 	return 0;
 }
@@ -27,4 +29,9 @@ void validateRange()
 		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\nProgram will now exit\n");
 		exit(-2);
 	}
+}
+
+int randomNumber()
+{
+	return rand() % MAX_NUMBER + MIN_NUMBER;
 }
