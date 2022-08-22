@@ -14,6 +14,7 @@ int randomNumber(void);
 int numberFromInput(void);
 int cleanedStream(void);
 int typedNumbersIndex(int number);
+void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
 void countNewNumber(int *typedNumbers, int number);
 void printWrongGuess(int number);
@@ -58,16 +59,8 @@ void loop()
 	do
 	{
 		givenNumber = numberFromInput();
-		
-		if(!alreadyTypedNumber(typedNumbers, givenNumber))
-		{
-			countNewNumber(typedNumbers, givenNumber);
-			printWrongGuess(givenNumber);
-		}
-		else
-		{
-			puts("You have already given that number.");
-		}
+
+		checkIfNumberHasAlreadyBeenTyped(typedNumbers, givenNumber);
 	}
 	while (numbersAreNotEqual(givenNumber, randomisedNumber));
 }
@@ -101,6 +94,19 @@ int cleanedStream()
 int typedNumbersIndex(int number)
 {
 	return number - MIN_NUMBER;
+}
+
+void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
+{
+	if(!alreadyTypedNumber(typedNumbers, number))
+	{
+		countNewNumber(typedNumbers, number);
+		printWrongGuess(number);
+	}
+	else
+	{
+		puts("You have already given that number.");
+	}
 }
 
 int alreadyTypedNumber(int *typedNumbers, int number)
