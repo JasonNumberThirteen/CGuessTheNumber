@@ -25,8 +25,6 @@ int main(void)
 
 	do
 	{
-		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
-		
 		givenNumber = numberFromInput();
 		
 		if(!typedNumbers[givenNumber - 1])
@@ -79,6 +77,7 @@ int numberFromInput()
 {
 	int number;
 	
+	printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
 	scanf("%d", &number);
 
 	return number;
