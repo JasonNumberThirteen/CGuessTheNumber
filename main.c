@@ -1,7 +1,7 @@
 #define MIN_NUMBER 1
 #define MAX_NUMBER 30
 #define GAME_TITLE "Guess the Number"
-#define PROGRAM_EXIT_MESSAGE "Program will now exit\n"
+#define PROGRAM_EXIT_MESSAGE "Program will now exit"
 #define INCORRECT_RANGE_MESSAGE "Incorrect range of numbers!"
 
 #include <time.h>
@@ -23,7 +23,7 @@ int randomisedNumber;
 int main(void)
 {
 	srand(time(NULL));
-	printf(GAME_TITLE "\n");
+	puts(GAME_TITLE);
 	validateRange();
 	loop();
 	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
@@ -35,12 +35,12 @@ void validateRange()
 {
 	if(MIN_NUMBER > MAX_NUMBER)
 	{
-		printf(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\n" PROGRAM_EXIT_MESSAGE);
+		puts(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-1);
 	}
 	else if(!numbersAreNotEqual(MIN_NUMBER, MAX_NUMBER))
 	{
-		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
+		puts(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-2);
 	}
 }
@@ -72,7 +72,7 @@ void loop()
 		}
 		else
 		{
-			printf("You have already given that number.\n");
+			puts("You have already given that number.");
 		}
 	}
 	while (numbersAreNotEqual(givenNumber, randomisedNumber));
@@ -118,10 +118,10 @@ void printTip(int givenNumber)
 {
 	if(givenNumber < randomisedNumber)
 	{
-		printf("The number is higher than yours.\n");
+		puts("The number is higher than yours.");
 	}
 	else if(givenNumber > randomisedNumber)
 	{
-		printf("The number is lower than yours.\n");
+		puts("The number is lower than yours.");
 	}
 }
