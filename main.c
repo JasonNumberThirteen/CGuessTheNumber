@@ -76,9 +76,13 @@ int numbersAreNotEqual(int a, int b)
 int numberFromInput()
 {
 	int number;
-	
-	printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
-	scanf("%d", &number);
+
+	do
+	{
+		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
+		scanf("%d", &number);
+	}
+	while (number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
 }
