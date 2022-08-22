@@ -12,6 +12,7 @@ int randomNumber(void);
 int numbersAreNotEqual(int a, int b);
 int cleanedStream(void);
 int numberFromInput(void);
+void printTip(int givenNumber, int randomisedNumber);
 
 int main(void)
 {
@@ -35,7 +36,8 @@ int main(void)
 
 			if(numbersAreNotEqual(givenNumber, randomisedNumber))
 			{
-				printf("Wrong! Try again.\n");
+				printf("Wrong! Try again. ");
+				printTip(givenNumber, randomisedNumber);
 			}
 		}
 		else
@@ -93,4 +95,16 @@ int numberFromInput()
 	while ((scanf("%d%c", &number, &c) != 2 || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
+}
+
+void printTip(int givenNumber, int randomisedNumber)
+{
+	if(givenNumber < randomisedNumber)
+	{
+		printf("The number is higher than yours.\n");
+	}
+	else if(givenNumber > randomisedNumber)
+	{
+		printf("The number is lower than yours.\n");
+	}
 }
