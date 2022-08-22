@@ -1,6 +1,7 @@
 #define MIN_NUMBER 1
 #define MAX_NUMBER 30
 #define INCORRECT_RANGE_MESSAGE "Incorrect range of numbers!"
+#define PROGRAM_EXIT_MESSAGE "Program will now exit\n"
 
 #include <time.h>
 #include <stdio.h>
@@ -43,12 +44,12 @@ void validateRange()
 {
 	if(MIN_NUMBER > MAX_NUMBER)
 	{
-		printf(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\nProgram will now exit\n");
+		printf(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-1);
 	}
 	else if(MIN_NUMBER == MAX_NUMBER)
 	{
-		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\nProgram will now exit\n");
+		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-2);
 	}
 }
