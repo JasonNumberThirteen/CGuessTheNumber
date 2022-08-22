@@ -23,6 +23,11 @@ int main(void)
 	{
 		givenNumber = randomNumber();
 		++tries;
+
+		if(givenNumber != randomisedNumber)
+		{
+			printf("Wrong! Try again.\n");
+		}
 	}
 	while (givenNumber != randomisedNumber);
 
