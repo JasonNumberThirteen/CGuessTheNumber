@@ -15,14 +15,16 @@ int main(void)
 	printf("Guess the Number\n");
 	validateRange();
 
+	int tries = 0;
 	int givenNumber;
 	int randomisedNumber = randomNumber();
 
 	do
 	{
 		givenNumber = randomNumber();
+		++tries;
 
-		printf("Given number = %d, Randomised number = %d\n", givenNumber, randomisedNumber);
+		printf("Given number = %d, Randomised number = %d, Tries = %d\n", givenNumber, randomisedNumber, tries);
 	}
 	while (givenNumber != randomisedNumber);
 
