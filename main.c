@@ -1,5 +1,6 @@
 #define MIN_NUMBER 1
 #define MAX_NUMBER 30
+#define GAME_TITLE "Guess the Number"
 #define PROGRAM_EXIT_MESSAGE "Program will now exit\n"
 #define INCORRECT_RANGE_MESSAGE "Incorrect range of numbers!"
 
@@ -17,7 +18,7 @@ void printTip(int givenNumber, int randomisedNumber);
 int main(void)
 {
 	srand(time(NULL));
-	printf("Guess the Number\n");
+	printf(GAME_TITLE "\n");
 	validateRange();
 
 	int tries = 0;
