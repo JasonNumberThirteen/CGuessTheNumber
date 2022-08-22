@@ -11,6 +11,7 @@
 void validateRange(void);
 void loop(void);
 int randomNumber(void);
+int typedNumbersIndex(int number);
 int numbersAreNotEqual(int a, int b);
 int cleanedStream(void);
 int numberFromInput(void);
@@ -53,11 +54,14 @@ void loop()
 
 	do
 	{
-		givenNumber = numberFromInput();
+		int index;
 		
-		if(!typedNumbers[givenNumber - 1])
+		givenNumber = numberFromInput();
+		index = typedNumbersIndex(givenNumber);
+		
+		if(!typedNumbers[index])
 		{
-			typedNumbers[givenNumber - 1] = 1;
+			typedNumbers[index] = 1;
 			++tries;
 
 			if(numbersAreNotEqual(givenNumber, randomisedNumber))
@@ -77,6 +81,11 @@ void loop()
 int randomNumber()
 {
 	return rand() % MAX_NUMBER + MIN_NUMBER;
+}
+
+int typedNumbersIndex(int number)
+{
+	return number - 1;
 }
 
 int numbersAreNotEqual(int a, int b)
