@@ -22,6 +22,8 @@ int main(void)
 
 	do
 	{
+		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
+		
 		givenNumber = randomNumber();
 		++tries;
 
