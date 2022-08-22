@@ -11,10 +11,10 @@
 void validateRange(void);
 void loop(void);
 int randomNumber(void);
+int numberFromInput(void);
+int cleanedStream(void);
 int typedNumbersIndex(int number);
 int numbersAreNotEqual(int a, int b);
-int cleanedStream(void);
-int numberFromInput(void);
 void printTip(int givenNumber);
 
 int tries = 0;
@@ -83,23 +83,6 @@ int randomNumber()
 	return rand() % MAX_NUMBER + MIN_NUMBER;
 }
 
-int typedNumbersIndex(int number)
-{
-	return number - MIN_NUMBER;
-}
-
-int numbersAreNotEqual(int a, int b)
-{
-	return a != b;
-}
-
-int cleanedStream()
-{
-	while (getchar() != '\n');
-	
-	return 1;
-}
-
 int numberFromInput()
 {
 	int number;
@@ -112,6 +95,23 @@ int numberFromInput()
 	while ((scanf("%d%c", &number, &c) != 2 || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
+}
+
+int cleanedStream()
+{
+	while (getchar() != '\n');
+	
+	return 1;
+}
+
+int typedNumbersIndex(int number)
+{
+	return number - MIN_NUMBER;
+}
+
+int numbersAreNotEqual(int a, int b)
+{
+	return a != b;
 }
 
 void printTip(int givenNumber)
