@@ -2,6 +2,7 @@
 #define MAX_NUMBER 30
 #define INCORRECT_RANGE_MESSAGE "Incorrect range of numbers!"
 
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,6 +11,7 @@ int randomNumber(void);
 
 int main(void)
 {
+	srand(time(NULL));
 	printf("Guess the Number\n");
 	validateRange();
 	printf("Random = %d", randomNumber());
