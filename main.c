@@ -15,6 +15,7 @@ int numberFromInput(void);
 int cleanedStream(void);
 int typedNumbersIndex(int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
+void countNewNumber(int *typedNumbers, int number);
 int numbersAreNotEqual(int a, int b);
 void printTip(int givenNumber);
 
@@ -55,15 +56,11 @@ void loop()
 
 	do
 	{
-		int index;
-		
 		givenNumber = numberFromInput();
-		index = typedNumbersIndex(givenNumber);
 		
 		if(!alreadyTypedNumber(typedNumbers, givenNumber))
 		{
-			typedNumbers[index] = 1;
-			++tries;
+			countNewNumber(typedNumbers, givenNumber);
 
 			if(numbersAreNotEqual(givenNumber, randomisedNumber))
 			{
@@ -113,6 +110,12 @@ int typedNumbersIndex(int number)
 int alreadyTypedNumber(int *typedNumbers, int number)
 {
 	return typedNumbers[typedNumbersIndex(number)];
+}
+
+void countNewNumber(int *typedNumbers, int number)
+{
+	typedNumbers[typedNumbersIndex(number)] = 1;
+	++tries;
 }
 
 int numbersAreNotEqual(int a, int b)
