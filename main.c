@@ -10,6 +10,7 @@
 void validateRange(void);
 int randomNumber(void);
 int numbersAreNotEqual(int a, int b);
+int cleanedStream(void);
 int numberFromInput(void);
 
 int main(void)
@@ -73,16 +74,23 @@ int numbersAreNotEqual(int a, int b)
 	return a != b;
 }
 
+int cleanedStream()
+{
+	while (getchar() != '\n');
+	
+	return 1;
+}
+
 int numberFromInput()
 {
 	int number;
+	char c;
 
 	do
 	{
 		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
-		scanf("%d", &number);
 	}
-	while (number < MIN_NUMBER || number > MAX_NUMBER);
+	while ((scanf("%d%c", &number, &c) != 2 || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
 }
