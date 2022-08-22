@@ -16,6 +16,7 @@ int cleanedStream(void);
 int typedNumbersIndex(int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
 void countNewNumber(int *typedNumbers, int number);
+void printWrongGuess(int number);
 int numbersAreNotEqual(int a, int b);
 void printTip(int givenNumber);
 
@@ -61,12 +62,7 @@ void loop()
 		if(!alreadyTypedNumber(typedNumbers, givenNumber))
 		{
 			countNewNumber(typedNumbers, givenNumber);
-
-			if(numbersAreNotEqual(givenNumber, randomisedNumber))
-			{
-				printf("Wrong! Try again. ");
-				printTip(givenNumber);
-			}
+			printWrongGuess(givenNumber);
 		}
 		else
 		{
@@ -116,6 +112,15 @@ void countNewNumber(int *typedNumbers, int number)
 {
 	typedNumbers[typedNumbersIndex(number)] = 1;
 	++tries;
+}
+
+void printWrongGuess(int number)
+{
+	if(numbersAreNotEqual(number, randomisedNumber))
+	{
+		printf("Wrong! Try again. ");
+		printTip(number);
+	}
 }
 
 int numbersAreNotEqual(int a, int b)
