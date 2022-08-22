@@ -10,6 +10,7 @@
 void validateRange(void);
 int randomNumber(void);
 int numbersAreNotEqual(int a, int b);
+int numberFromInput(void);
 
 int main(void)
 {
@@ -25,7 +26,8 @@ int main(void)
 	do
 	{
 		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
-		scanf("%d", &givenNumber);
+		
+		givenNumber = numberFromInput();
 		
 		if(!typedNumbers[givenNumber - 1])
 		{
@@ -71,4 +73,13 @@ int randomNumber()
 int numbersAreNotEqual(int a, int b)
 {
 	return a != b;
+}
+
+int numberFromInput()
+{
+	int number;
+	
+	scanf("%d", &number);
+
+	return number;
 }
