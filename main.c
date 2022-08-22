@@ -12,6 +12,7 @@ void validateRange(void);
 void loop(void);
 int randomNumber(void);
 int numberFromInput(void);
+int typedNumberAndChar(int *number, char *c);
 int cleanedStream(void);
 int typedNumbersIndex(int number);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
@@ -79,9 +80,14 @@ int numberFromInput()
 	{
 		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
 	}
-	while ((scanf("%d%c", &number, &c) != 2 || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
+	while ((!typedNumberAndChar(&number, &c) || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
+}
+
+int typedNumberAndChar(int *number, char *c)
+{
+	return scanf("%d%c", number, c) == 2;
 }
 
 int cleanedStream()
