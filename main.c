@@ -9,45 +9,22 @@
 #include <stdlib.h>
 
 void validateRange(void);
+void loop(void);
 int randomNumber(void);
 int numbersAreNotEqual(int a, int b);
 int cleanedStream(void);
 int numberFromInput(void);
-void printTip(int givenNumber, int randomisedNumber);
+void printTip(int givenNumber);
+
+int tries = 0;
+int randomisedNumber;
 
 int main(void)
 {
 	srand(time(NULL));
 	printf(GAME_TITLE "\n");
 	validateRange();
-
-	int tries = 0;
-	int givenNumber;
-	int randomisedNumber = randomNumber();
-	int typedNumbers[MAX_NUMBER] = {0};
-
-	do
-	{
-		givenNumber = numberFromInput();
-		
-		if(!typedNumbers[givenNumber - 1])
-		{
-			typedNumbers[givenNumber - 1] = 1;
-			++tries;
-
-			if(numbersAreNotEqual(givenNumber, randomisedNumber))
-			{
-				printf("Wrong! Try again. ");
-				printTip(givenNumber, randomisedNumber);
-			}
-		}
-		else
-		{
-			printf("You have already given that number.\n");
-		}
-	}
-	while (numbersAreNotEqual(givenNumber, randomisedNumber));
-
+	loop();
 	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 
 	return 0;
@@ -65,6 +42,36 @@ void validateRange()
 		printf(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-2);
 	}
+}
+
+void loop()
+{
+	int givenNumber;
+	int typedNumbers[MAX_NUMBER] = {0};
+
+	randomisedNumber = randomNumber();
+
+	do
+	{
+		givenNumber = numberFromInput();
+		
+		if(!typedNumbers[givenNumber - 1])
+		{
+			typedNumbers[givenNumber - 1] = 1;
+			++tries;
+
+			if(numbersAreNotEqual(givenNumber, randomisedNumber))
+			{
+				printf("Wrong! Try again. ");
+				printTip(givenNumber);
+			}
+		}
+		else
+		{
+			printf("You have already given that number.\n");
+		}
+	}
+	while (numbersAreNotEqual(givenNumber, randomisedNumber));
 }
 
 int randomNumber()
@@ -98,7 +105,7 @@ int numberFromInput()
 	return number;
 }
 
-void printTip(int givenNumber, int randomisedNumber)
+void printTip(int givenNumber)
 {
 	if(givenNumber < randomisedNumber)
 	{
