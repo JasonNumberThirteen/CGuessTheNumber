@@ -23,10 +23,10 @@ int main(void)
 	{
 		givenNumber = randomNumber();
 		++tries;
-
-		printf("Given number = %d, Randomised number = %d, Tries = %d\n", givenNumber, randomisedNumber, tries);
 	}
 	while (givenNumber != randomisedNumber);
+
+	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 
 	return 0;
 }
