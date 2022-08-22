@@ -48,7 +48,7 @@ void validateRange()
 void loop()
 {
 	int givenNumber;
-	int typedNumbers[MAX_NUMBER] = {0};
+	int typedNumbers[MAX_NUMBER - MIN_NUMBER + 1] = {0};
 
 	randomisedNumber = randomNumber();
 
@@ -85,7 +85,7 @@ int randomNumber()
 
 int typedNumbersIndex(int number)
 {
-	return number - 1;
+	return number - MIN_NUMBER;
 }
 
 int numbersAreNotEqual(int a, int b)
