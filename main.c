@@ -20,17 +20,27 @@ int main(void)
 	int tries = 0;
 	int givenNumber;
 	int randomisedNumber = randomNumber();
+	int typedNumbers[MAX_NUMBER] = {0};
 
 	do
 	{
 		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
 		
 		givenNumber = randomNumber();
-		++tries;
-
-		if(numbersAreNotEqual(givenNumber, randomisedNumber))
+		
+		if(!typedNumbers[givenNumber - 1])
 		{
-			printf("Wrong! Try again.\n");
+			typedNumbers[givenNumber - 1] = 1;
+			++tries;
+
+			if(numbersAreNotEqual(givenNumber, randomisedNumber))
+			{
+				printf("Wrong! Try again.\n");
+			}
+		}
+		else
+		{
+			printf("You have already given that number.\n");
 		}
 	}
 	while (numbersAreNotEqual(givenNumber, randomisedNumber));
