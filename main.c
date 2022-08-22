@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void validateRange();
+void validateRange(void);
 
 int main(void)
 {
