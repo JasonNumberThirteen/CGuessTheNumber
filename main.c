@@ -1,6 +1,7 @@
 #define MIN_NUMBER 1
 #define MAX_NUMBER 30
 #define GAME_TITLE "Guess the Number"
+#define NEW_LINE_CHARACTER '\n'
 #define PROGRAM_EXIT_MESSAGE "Program will now exit"
 #define INCORRECT_RANGE_MESSAGE "Incorrect range of numbers!"
 
@@ -80,7 +81,7 @@ int numberFromInput()
 	{
 		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
 	}
-	while ((!typedNumberAndChar(&number, &c) || c != '\n') && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
+	while ((!typedNumberAndChar(&number, &c) || c != NEW_LINE_CHARACTER) && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
 
 	return number;
 }
@@ -92,7 +93,7 @@ int typedNumberAndChar(int *number, char *c)
 
 int cleanedStream()
 {
-	while (getchar() != '\n');
+	while (getchar() != NEW_LINE_CHARACTER);
 	
 	return 1;
 }
