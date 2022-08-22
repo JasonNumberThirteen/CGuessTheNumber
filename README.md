@@ -4,6 +4,7 @@
 ## Table of Contents
 * [General information](#general-information)
 * [Used technologies](#used-technologies)
+* [Features](#features)
 * [Usage](#usage)
 * [Credits](#credits)
 
@@ -17,6 +18,9 @@
 ## Used technologies
 - "Visual Studio Code" IDE for writing code
 - GCC compiler (Rev2, Built by MSYS2 project) 12.1.0
+
+## Features
+- Validation of numbers range (minimum greater than maximum and minimum equal to maximum)
 
 ## Usage
 - Type a whole number when prompted
