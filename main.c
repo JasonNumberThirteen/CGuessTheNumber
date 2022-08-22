@@ -8,6 +8,7 @@
 
 void validateRange(void);
 int randomNumber(void);
+int numbersAreNotEqual(int a, int b);
 
 int main(void)
 {
@@ -24,12 +25,12 @@ int main(void)
 		givenNumber = randomNumber();
 		++tries;
 
-		if(givenNumber != randomisedNumber)
+		if(numbersAreNotEqual(givenNumber, randomisedNumber))
 		{
 			printf("Wrong! Try again.\n");
 		}
 	}
-	while (givenNumber != randomisedNumber);
+	while (numbersAreNotEqual(givenNumber, randomisedNumber));
 
 	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 
@@ -53,4 +54,9 @@ void validateRange()
 int randomNumber()
 {
 	return rand() % MAX_NUMBER + MIN_NUMBER;
+}
+
+int numbersAreNotEqual(int a, int b)
+{
+	return a != b;
 }
