@@ -20,7 +20,7 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
 void countNewNumber(int *typedNumbers, int number);
 void printWrongGuess(int number);
-int numbersAreNotEqual(int a, int b);
+int numbersAreEqual(int a, int b);
 void printTip(int givenNumber);
 
 int tries = 0;
@@ -44,7 +44,7 @@ void validateRange()
 		puts(INCORRECT_RANGE_MESSAGE " Minimum is higher than maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-1);
 	}
-	else if(!numbersAreNotEqual(MIN_NUMBER, MAX_NUMBER))
+	else if(numbersAreEqual(MIN_NUMBER, MAX_NUMBER))
 	{
 		puts(INCORRECT_RANGE_MESSAGE " Minimum is equal to maximum!\n" PROGRAM_EXIT_MESSAGE);
 		exit(-2);
@@ -64,7 +64,7 @@ void loop()
 
 		checkIfNumberHasAlreadyBeenTyped(typedNumbers, givenNumber);
 	}
-	while (numbersAreNotEqual(givenNumber, randomisedNumber));
+	while (!numbersAreEqual(givenNumber, randomisedNumber));
 }
 
 int randomNumber()
@@ -129,16 +129,16 @@ void countNewNumber(int *typedNumbers, int number)
 
 void printWrongGuess(int number)
 {
-	if(numbersAreNotEqual(number, randomisedNumber))
+	if(!numbersAreEqual(number, randomisedNumber))
 	{
 		printf("Wrong! Try again. ");
 		printTip(number);
 	}
 }
 
-int numbersAreNotEqual(int a, int b)
+int numbersAreEqual(int a, int b)
 {
-	return a != b;
+	return a == b;
 }
 
 void printTip(int givenNumber)
