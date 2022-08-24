@@ -22,7 +22,7 @@
 - GCC compiler (Rev2, Built by MSYS2 project) 12.1.0
 
 ## Features
-- Adjustable range of integers
+- Adjustable range of integers (the game works only with POSITIVE values!)
 - Validation of numbers range (minimum greater than maximum and minimum equal to maximum)
 - Validation of typed number (used technique from [this link](https://stackoverflow.com/a/14099507 "How to scanf only integer and repeat reading if the user enters non-numeric characters?"))
 
@@ -30,7 +30,9 @@
 - Type a whole number when prompted
 
 ## Compilation
-- Just type ```gcc -o main main.c``` command from command line to compile code and launch the application typing ```main```.
+- If you are using "Visual Studio Code", all you need to do is edit ```tasks.json``` file and replace default entries with these ones (after the ```-g``` entry):
+	- ```"${fileDirname}\\*.c",```
+	- ```"${fileDirname}\\*.h",```
 
 ## Credits
 - This project was made by [Jason](https://jasonxiii.pl "Jason. Gry, muzyka, kursy, artykuły, programy i filmy!")
