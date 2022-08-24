@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "game.h"
 #include "communicator.h"
 #include "typedNumbers.h"
 
