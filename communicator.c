@@ -3,7 +3,6 @@
 
 #include "game.h"
 #include "communicator.h"
-#include "typedNumbers.h"
 
 extern int tries;
 extern int randomisedNumber;
