@@ -15,10 +15,10 @@ int randomNumber(void);
 int numberFromInput(void);
 int typedNumberAndChar(int *number, char *c);
 int cleanedStream(void);
-int typedNumbersIndex(int number);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
 void countNewNumber(int *typedNumbers, int number);
+int typedNumbersIndex(int number);
 void printWrongGuess(int number);
 int numbersAreEqual(int a, int b);
 void printTip(int givenNumber);
@@ -98,11 +98,6 @@ int cleanedStream()
 	return 1;
 }
 
-int typedNumbersIndex(int number)
-{
-	return number - MIN_NUMBER;
-}
-
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 {
 	if(!alreadyTypedNumber(typedNumbers, number))
@@ -125,6 +120,11 @@ void countNewNumber(int *typedNumbers, int number)
 {
 	typedNumbers[typedNumbersIndex(number)] = 1;
 	++tries;
+}
+
+int typedNumbersIndex(int number)
+{
+	return number - MIN_NUMBER;
 }
 
 void printWrongGuess(int number)
