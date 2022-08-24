@@ -1,14 +1,13 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "input.h"
 #include "constants.h"
 
 void validateRange(void);
 void loop(void);
 int randomNumber(void);
-int numberFromInput(void);
-int typedNumberAndChar(int *number, char *c);
-int cleanedStream(void);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
 int alreadyTypedNumber(int *typedNumbers, int number);
 void countNewNumber(int *typedNumbers, int number);
@@ -64,32 +63,6 @@ void loop()
 int randomNumber()
 {
 	return rand() % MAX_NUMBER + MIN_NUMBER;
-}
-
-int numberFromInput()
-{
-	int number;
-	char c;
-
-	do
-	{
-		printf("Type number from %d to %d: ", MIN_NUMBER, MAX_NUMBER);
-	}
-	while ((!typedNumberAndChar(&number, &c) || c != NEW_LINE_CHARACTER) && cleanedStream() || number < MIN_NUMBER || number > MAX_NUMBER);
-
-	return number;
-}
-
-int typedNumberAndChar(int *number, char *c)
-{
-	return scanf("%d%c", number, c) == 2;
-}
-
-int cleanedStream()
-{
-	while (getchar() != NEW_LINE_CHARACTER);
-	
-	return 1;
 }
 
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
