@@ -3,8 +3,8 @@
 
 void validateRange(void);
 void loop(void);
-int randomNumber(void);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
+int randomNumber(void);
 int numbersAreEqual(int a, int b);
 
 #endif

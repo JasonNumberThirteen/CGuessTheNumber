@@ -40,11 +40,6 @@ void loop()
 	while (!numbersAreEqual(givenNumber, randomisedNumber));
 }
 
-int randomNumber()
-{
-	return rand() % MAX_NUMBER + MIN_NUMBER;
-}
-
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 {
 	if(!alreadyTypedNumber(typedNumbers, number))
@@ -56,6 +51,11 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 	{
 		printAlreadyTypedNumber();
 	}
+}
+
+int randomNumber()
+{
+	return rand() % MAX_NUMBER + MIN_NUMBER;
 }
 
 int numbersAreEqual(int a, int b)
