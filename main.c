@@ -4,17 +4,14 @@
 
 #include "input.h"
 #include "constants.h"
+#include "communicator.h"
 #include "typedNumbers.h"
 
 void validateRange(void);
 void loop(void);
 int randomNumber(void);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
-void printWrongGuess(int number);
-void printAlreadyTypedNumber(void);
 int numbersAreEqual(int a, int b);
-void printTip(int givenNumber);
-void printSuccess(void);
 
 int tries = 0;
 int randomisedNumber;
@@ -78,38 +75,7 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 	}
 }
 
-void printAlreadyTypedNumber()
-{
-	puts("You have already given that number.");
-}
-
-void printWrongGuess(int number)
-{
-	if(!numbersAreEqual(number, randomisedNumber))
-	{
-		printf("Wrong! Try again. ");
-		printTip(number);
-	}
-}
-
 int numbersAreEqual(int a, int b)
 {
 	return a == b;
-}
-
-void printTip(int givenNumber)
-{
-	if(givenNumber < randomisedNumber)
-	{
-		puts("The number is higher than yours.");
-	}
-	else if(givenNumber > randomisedNumber)
-	{
-		puts("The number is lower than yours.");
-	}
-}
-
-void printSuccess()
-{
-	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 }
