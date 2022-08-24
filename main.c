@@ -11,8 +11,10 @@ void loop(void);
 int randomNumber(void);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
 void printWrongGuess(int number);
+void printAlreadyTypedNumber(void);
 int numbersAreEqual(int a, int b);
 void printTip(int givenNumber);
+void printSuccess(void);
 
 int tries = 0;
 int randomisedNumber;
@@ -23,7 +25,7 @@ int main(void)
 	puts(GAME_TITLE);
 	validateRange();
 	loop();
-	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
+	printSuccess();
 
 	return 0;
 }
@@ -72,8 +74,13 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 	}
 	else
 	{
-		puts("You have already given that number.");
+		printAlreadyTypedNumber();
 	}
+}
+
+void printAlreadyTypedNumber()
+{
+	puts("You have already given that number.");
 }
 
 void printWrongGuess(int number)
@@ -100,4 +107,9 @@ void printTip(int givenNumber)
 	{
 		puts("The number is lower than yours.");
 	}
+}
+
+void printSuccess()
+{
+	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 }
