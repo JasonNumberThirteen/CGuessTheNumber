@@ -30,9 +30,23 @@
 - Type a whole number when prompted
 
 ## Compilation
-- If you are using "Visual Studio Code", all you need to do is edit ```tasks.json``` file and replace default entries with these ones (after the ```-g``` entry):
-	- ```"${fileDirname}\\*.c",```
-	- ```"${fileDirname}\\*.h",```
+### Visual Studio Code
+- If you are using "Visual Studio Code":
+	1. Install a plugin for C/C++ compilation from [this link](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools "C/C++ - Visual Studio Marketplace")
+	2. Select ```Terminal```, ```Configure default compilation tasks``` and choose your desired compiler
+	3. Go to ```tasks.json``` file existing in ```.vscode``` directory, find created task, find the ```args``` keyword and replace default entries with these ones (after the ```-g``` entry):
+		- ```"${fileDirname}\\*.c",```
+		- ```"${fileDirname}\\*.h",```
+	4. Select ```main.c``` file
+	5. Press Ctrl+Shift+B to compile
+	6. Select ```Terminal```, ```New terminal```
+	7. Launch the game typing ```./main```
+### GCC
+- You can also compile the game using GCC compiler:
+	1. Launch command prompt with administrator privileges
+	2. Go to directory where this ```README``` file is using ```cd``` command
+	3. Enter this command: ```gcc -o main main.c communicator.c game.c input.c typedNumbers.c```
+	4. Launch the game typing ```main```
 
 ## Credits
 - This project was made by [Jason](https://jasonxiii.pl "Jason. Gry, muzyka, kursy, artykuły, programy i filmy!")
