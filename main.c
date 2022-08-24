@@ -4,14 +4,12 @@
 
 #include "input.h"
 #include "constants.h"
+#include "typedNumbers.h"
 
 void validateRange(void);
 void loop(void);
 int randomNumber(void);
 void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number);
-int alreadyTypedNumber(int *typedNumbers, int number);
-void countNewNumber(int *typedNumbers, int number);
-int typedNumbersIndex(int number);
 void printWrongGuess(int number);
 int numbersAreEqual(int a, int b);
 void printTip(int givenNumber);
@@ -76,22 +74,6 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 	{
 		puts("You have already given that number.");
 	}
-}
-
-int alreadyTypedNumber(int *typedNumbers, int number)
-{
-	return typedNumbers[typedNumbersIndex(number)];
-}
-
-void countNewNumber(int *typedNumbers, int number)
-{
-	typedNumbers[typedNumbersIndex(number)] = 1;
-	++tries;
-}
-
-int typedNumbersIndex(int number)
-{
-	return number - MIN_NUMBER;
 }
 
 void printWrongGuess(int number)
