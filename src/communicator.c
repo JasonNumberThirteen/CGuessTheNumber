@@ -2,10 +2,16 @@
 #include <stdlib.h>
 
 #include "game.h"
+#include "constants.h"
 #include "communicator.h"
 
 extern int tries;
 extern int randomisedNumber;
+
+void printGameTitle()
+{
+	puts(GAME_TITLE);
+}
 
 void printWrongGuess(int number)
 {
