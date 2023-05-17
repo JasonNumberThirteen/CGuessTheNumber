@@ -8,7 +8,7 @@
 extern int tries;
 extern int randomisedNumber;
 
-void printGameTitle()
+void printGameTitle(void)
 {
 	puts(GAME_TITLE);
 }
@@ -22,7 +22,7 @@ void printWrongGuess(int number)
 	}
 }
 
-void printAlreadyTypedNumber()
+void printAlreadyTypedNumber(void)
 {
 	puts("You have already given that number.");
 }
@@ -39,7 +39,7 @@ void printTip(int givenNumber)
 	}
 }
 
-void printSuccess()
+void printSuccess(void)
 {
 	printf("You guessed right! It is %d!\nTRIES: %d", randomisedNumber, tries);
 }

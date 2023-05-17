@@ -3,7 +3,7 @@
 #include "input.h"
 #include "constants.h"
 
-int numberFromInput()
+int numberFromInput(void)
 {
 	int number;
 	char c;
@@ -22,7 +22,7 @@ int typedNumberAndChar(int *number, char *c)
 	return scanf("%d%c", number, c) == 2;
 }
 
-int cleanedStream()
+int cleanedStream(void)
 {
 	while (getchar() != NEW_LINE_CHARACTER);
 	

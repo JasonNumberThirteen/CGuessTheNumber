@@ -10,7 +10,7 @@
 int tries = 0;
 int randomisedNumber;
 
-void validateRange()
+void validateRange(void)
 {
 	if(MIN_NUMBER > MAX_NUMBER)
 	{
@@ -24,7 +24,7 @@ void validateRange()
 	}
 }
 
-void loop()
+void loop(void)
 {
 	int givenNumber;
 	int typedNumbers[MAX_NUMBER - MIN_NUMBER + 1] = {0};
@@ -53,7 +53,7 @@ void checkIfNumberHasAlreadyBeenTyped(int *typedNumbers, int number)
 	}
 }
 
-int randomNumber()
+int randomNumber(void)
 {
 	return rand() % MAX_NUMBER + MIN_NUMBER;
 }
